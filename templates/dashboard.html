@@ -1,0 +1,455 @@
+
+<div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Cyber Security">
+</div>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPI Shield AI Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #020617,
+        #0f172a,
+        #1e293b,
+        #0f172a
+    );
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#00d4ff30;
+    border-radius:50%;
+    filter:blur(120px);
+    top:-200px;
+    left:-150px;
+    animation:move1 10s infinite alternate;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#4f46e530;
+    border-radius:50%;
+    filter:blur(120px);
+    bottom:-150px;
+    right:-150px;
+    animation:move2 10s infinite alternate;
+}
+
+@keyframes move1{
+    from{transform:translateX(0);}
+    to{transform:translateX(150px);}
+}
+
+@keyframes move2{
+    from{transform:translateX(0);}
+    to{transform:translateX(-150px);}
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:30px;
+    position:relative;
+    z-index:1;
+}
+
+/* Header */
+
+.header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.logo{
+    font-size:70px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+.title{
+    font-size:55px;
+    font-weight:bold;
+    color:#38bdf8;
+
+    text-shadow:
+    0 0 10px #38bdf8,
+    0 0 20px #38bdf8,
+    0 0 40px #38bdf8;
+
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:
+        0 0 10px #38bdf8;
+    }
+
+    to{
+        text-shadow:
+        0 0 20px #38bdf8,
+        0 0 40px #38bdf8,
+        0 0 60px #38bdf8;
+    }
+}
+
+.subtitle{
+    margin-top:10px;
+    color:#cbd5e1;
+    font-size:18px;
+}
+
+.made{
+    margin-top:10px;
+    color:#22c55e;
+    font-weight:bold;
+}
+
+.creator{
+    color:#fbbf24;
+    margin-top:5px;
+}
+
+/* Hero */
+
+.hero{
+    margin-top:30px;
+    padding:30px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.hero h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#e2e8f0;
+    line-height:1.8;
+}
+
+/* Cards */
+
+.card{
+
+    width:260px;
+    padding:30px;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(25px);
+
+    border-radius:25px;
+
+    border:1px solid rgba(56,189,248,.25);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-100%;
+
+    width:200%;
+
+    height:200%;
+
+    background:
+    linear-gradient(
+    45deg,
+    transparent,
+    rgba(255,255,255,.15),
+    transparent
+    );
+
+    transition:.6s;
+}
+
+.card:hover::before{
+
+    top:100%;
+    left:100%;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.04);
+
+    box-shadow:
+    0 0 35px #38bdf8;
+}
+
+
+
+/* Buttons */
+
+.buttons{
+    margin-top:40px;
+    text-align:center;
+}
+
+button{
+    padding:14px 22px;
+    margin:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #00d4ff,
+        #2563eb
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Features */
+
+.features{
+    margin-top:50px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.feature{
+    width:300px;
+    padding:20px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+}
+
+.feature h3{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+/* Footer */
+
+.footer{
+    text-align:center;
+    margin-top:60px;
+    padding:20px;
+    color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="scan-line"></div>
+
+    <div class="particles"></div>
+<div class="particles2"></div>
+
+<div class="container">
+
+<div class="header">
+
+<div class="logo">🛡️</div>
+
+<div class="title">
+UPI Shield AI
+</div>
+
+<div class="subtitle">
+Welcome back, {{ user_name }} 👋
+</div>
+
+<div class="subtitle">
+AI Powered Fraud Detection Platform
+</div>
+
+<div class="subtitle">
+AI Powered Fraud Detection Platform
+</div>
+
+<div class="made">
+🇮🇳 Made in India
+</div>
+
+<div class="creator">
+Developed by Gagan Pandey
+</div>
+
+</div>
+
+<div class="hero">
+
+<h2>
+🤖 Protecting Users From Online Scams
+</h2>
+
+<p>
+UPI Shield AI uses intelligent fraud detection
+to identify suspicious SMS messages, phishing links,
+UPI scams and cyber threats before they can harm users.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>📊 Total Scans</h3>
+<div class="number">{{ total_scans }}</div>
+</div>
+
+<div class="card">
+<h3>🚨 Frauds</h3>
+<div class="number">{{ fraud_count }}</div>
+</div>
+
+<div class="card">
+<h3>⚠ Suspicious</h3>
+<div class="number">{{ suspicious_count }}</div>
+</div>
+
+<div class="card">
+<h3>✅ Safe</h3>
+<div class="number">{{ safe_count }}</div>
+</div>
+
+</div>
+
+<div class="buttons">
+
+<a href="/checker">
+<button>🔍 Start Fraud Check</button>
+</a>
+
+<a href="/history">
+<button>📜 Scan History</button>
+</a>
+
+<a href="/profile">
+<button>👤 My Profile</button>
+</a>
+
+<a href="/logout">
+<button>🚪 Logout</button>
+</a>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+<h3>🧠 AI Analysis</h3>
+<p>
+Detects suspicious patterns and scam keywords.
+</p>
+</div>
+
+<div class="feature">
+<h3>🛡️ Cyber Protection</h3>
+<p>
+Protects users from phishing and fraud attempts.
+</p>
+</div>
+
+<div class="feature">
+<h3>⚡ Real-Time Scanning</h3>
+<p>
+Instant fraud detection with risk scoring.
+</p>
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 UPI Shield AI <br>
+Built with Python, Flask & Artificial Intelligence
+
+</div>
+
+</div>
+
+<div class="footer">
+
+    🛡️ UPI Shield AI <br>
+
+    AI Powered Fraud Detection Platform <br>
+
+    🇮🇳 Made in India <br>
+
+    Developed by Gagan Pandey
+
+</div>
+
+</body>
+</html>

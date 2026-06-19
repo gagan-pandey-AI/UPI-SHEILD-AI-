@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Shield AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🛡️ UPI Shield AI</h1>
+        <p class="subtitle">
+            Protect Yourself From SMS, UPI & Cyber Fraud
+        </p>
+
+        <textarea
+            id="smsBox"
+            placeholder="Paste suspicious SMS here..."
+            rows="8"></textarea>
+
+        <div class="buttons">
+
+            <button onclick="pasteClipboard()">
+                📋 Paste From Clipboard
+            </button>
+
+            <button onclick="checkFraud()">
+                🔍 Check Fraud
+            </button>
+
+        </div>
+
+        <div id="result" class="result">
+            Waiting for analysis...
+        </div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+<div class="risk-container">
+
+    <h3>Risk Score</h3>
+
+    <div class="risk-meter">
+
+        <div id="riskValue">
+            0%
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<div id="actionButtons" style="display:none; margin-top:20px;">
+
+    <a href="https://cybercrime.gov.in" target="_blank">
+        <button>🚨 Report Cyber Crime</button>
+    </a>
+
+    <a href="tel:1930">
+        <button>📞 Call 1930</button>
+    </a>
+
+</div>
+
+
+
+
+<div class="scanner">
+    <div class="scan-bar"></div>
+</div>

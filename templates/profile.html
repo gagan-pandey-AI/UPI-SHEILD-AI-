@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile - UPI Shield AI</title>
+<link rel="stylesheet" href="/static/style.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #020617,
+        #0f172a,
+        #1e293b
+    );
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.profile-card{
+
+    width:800px;
+    max-width:95%;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:0 0 30px rgba(0,212,255,0.2);
+}
+
+.avatar{
+    font-size:90px;
+    text-align:center;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    color:#38bdf8;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#cbd5e1;
+    margin-top:10px;
+}
+
+.user-info{
+    margin-top:30px;
+}
+
+.info-box{
+
+    background:rgba(255,255,255,0.05);
+
+    padding:18px;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+}
+
+.label{
+    color:#38bdf8;
+    font-weight:bold;
+}
+
+.stats{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.stat-card{
+
+    width:160px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.06);
+}
+
+.number{
+    font-size:32px;
+    font-weight:bold;
+    color:#38bdf8;
+}
+
+.security{
+
+    margin-top:30px;
+
+    text-align:center;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:rgba(34,197,94,0.15);
+
+    border:1px solid rgba(34,197,94,0.3);
+}
+
+.buttons{
+    text-align:center;
+    margin-top:30px;
+}
+
+button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #00d4ff,
+        #2563eb
+    );
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="profile-card">
+
+<img
+src="/static/uploads/{{ user[4] }}"
+width="150"
+height="150"
+style="
+border-radius:50%;
+object-fit:cover;
+border:4px solid #38bdf8;
+display:block;
+margin:auto;
+">
+
+<form
+action="/upload_photo"
+method="POST"
+enctype="multipart/form-data"
+style="text-align:center;margin-top:20px;"
+>
+
+<input
+type="file"
+name="photo"
+required>
+
+<br><br>
+
+<button type="submit">
+📸 Upload Photo
+</button>
+
+</form>
+
+
+<div class="title">
+{{ user[1] }}
+</div>
+
+<div class="subtitle">
+UPI Shield AI Member
+</div>
+
+<div class="user-info">
+
+<div class="info-box">
+<span class="label">📧 Email:</span>
+{{ user[2] }}
+</div>
+
+<div class="info-box">
+<span class="label">🏅 Status:</span>
+Verified User
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+<div class="number">{{ total_scans }}</div>
+<p>Total Scans</p>
+</div>
+
+<div class="stat-card">
+<div class="number">{{ fraud_count }}</div>
+<p>Frauds</p>
+</div>
+
+<div class="stat-card">
+<div class="number">{{ suspicious_count }}</div>
+<p>Suspicious</p>
+</div>
+
+<div class="stat-card">
+<div class="number">{{ safe_count }}</div>
+<p>Safe</p>
+</div>
+
+</div>
+
+<div class="security">
+<h2>⭐ Security Score: {{ security_score }}%</h2>
+<p>Your cyber safety rating based on scan history.</p>
+</div>
+
+<div class="buttons">
+
+<a href="/dashboard">
+<button>⬅ Back to Dashboard</button>
+</a>
+
+</div>
+
+<div class="footer">
+
+🇮🇳 Made in India<br>
+Developed by Gagan Pandey
+
+</div>
+
+</div>
+
+</body>
+</html>

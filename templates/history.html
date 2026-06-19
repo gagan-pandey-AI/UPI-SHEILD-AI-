@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan History</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <h1>📜 Scan History</h1>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Status</th>
+            <th>Risk Score</th>
+            <th>Date</th>
+        </tr>
+
+        {% for item in history %}
+
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/dashboard">
+        <button>⬅ Back Dashboard</button>
+    </a>
+
+</body>
+</html>
