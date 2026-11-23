@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scam Safety Simulator | UPI Shield AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="app-nav" aria-label="Main navigation">
+    <a class="app-brand" href="{{ url_for('home') }}">UPI Shield AI</a>
+    <div class="app-nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('checker') }}">Scan</a>
+        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <form method="post" action="{{ url_for('logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="nav-signout">Sign out</button>
+        </form>
+    </div>
+</nav>
+<main class="container simulator-page">
+    <h1>Interactive scam safety simulator</h1>
+    <p class="simulator-notice">Educational examples only. All people, messages, and organizations below are fictional.</p>
+    {% if error %}<p class="flash error" role="alert">{{ error }}</p>{% endif %}
+    {% for scenario in scenarios %}
+      <section class="card simulator-card">
+        <h2>{{ scenario['title'] }}</h2>
+        <blockquote>{{ scenario['message'] }}</blockquote>
+        <form method="post" action="{{ url_for('simulator') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input type="hidden" name="scenario_id" value="{{ scenario['id'] }}">
+          <fieldset>
+            <legend>How would you assess this message?</legend>
+            {% for value, label in [('scam', 'Suspicious / likely scam'), ('unsure', 'I am unsure'), ('likely_legitimate', 'Likely legitimate')] %}
+              <label class="simulator-choice"><input type="radio" name="answer" value="{{ value }}" required> {{ label }}</label>
+            {% endfor %}
+          </fieldset>
+          <button type="submit">Reveal warning signs and safety steps</button>
+        </form>
+        {% if revealed and revealed['id'] == scenario['id'] %}
+          <div class="simulator-reveal" role="status">
+            <h3>{{ 'Correct assessment' if is_correct else 'Learning note' }}</h3>
+            <p>This fictional example is suspicious. Your selection: {{ selected_answer|replace('_', ' ') }}.</p>
+            <h4>Warning signs</h4>
+            <ul>{% for item in scenario['warning_signs'] %}<li>{{ item }}</li>{% endfor %}</ul>
+            <h4>Safer actions</h4>
+            <ul>{% for item in scenario['actions'] %}<li>{{ item }}</li>{% endfor %}</ul>
+          </div>
+        {% endif %}
+      </section>
+    {% endfor %}
+    <p><a class="button" href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+</main>
+</body>
+</html>

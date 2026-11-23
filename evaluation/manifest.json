@@ -1,0 +1,47 @@
+{
+  "evaluation_date": "2026-11-23",
+  "method": "The existing offline rules are evaluated as binary positive (SUSPICIOUS/FRAUD or a structural indicator) versus negative. Reputation providers are not called.",
+  "datasets": [
+    {
+      "id": "uci_sms_spam_collection",
+      "file": "data/uci-sms-spam-collection.zip",
+      "source": "Almeida, T. & Hidalgo, J. (2011), SMS Spam Collection, UCI Machine Learning Repository",
+      "source_url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+      "doi": "10.24432/C5CC84",
+      "license": "CC BY 4.0",
+      "collection_date": "Underlying message collection dates are not fully specified by UCI; donated to UCI on 2012-06-21.",
+      "sample_count": 5574,
+      "class_distribution": {
+        "ham": 4827,
+        "spam": 747
+      },
+      "preprocessing": "Read the original tab-separated label and message; map ham to negative and spam to positive. No text normalization beyond the detector own NFKC/casefold processing. Spam is only a broad proxy, not equivalent to fraud or UPI scams.",
+      "data_origin": "public_real_world_research_corpus"
+    },
+    {
+      "id": "synthetic_fixtures",
+      "file": "datasets/*.jsonl",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "source_url": null,
+      "license": "Project-authored synthetic test data",
+      "collection_date": "Authored 2026-11-23",
+      "sample_count": null,
+      "class_distribution": "Computed by the evaluation runner",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "data_origin": "synthetic"
+    },
+    {
+      "id": "uci_phishing_websites_excluded",
+      "file": null,
+      "source": "Mohammad, R. & McCluskey, L. (2012), Phishing Websites, UCI Machine Learning Repository",
+      "source_url": "https://archive.ics.uci.edu/dataset/327/phishing",
+      "doi": "10.24432/C51W2X",
+      "license": "CC BY 4.0",
+      "collection_date": "Donated to UCI on 2015-03-25; upstream records vary.",
+      "sample_count": 11055,
+      "class_distribution": "Not evaluated",
+      "preprocessing": "Reviewed but excluded from raw-URL metrics: its 30 columns are engineered features, not URL strings, so they cannot exercise this URL parser.",
+      "data_origin": "public_dataset_reviewed_but_not_used"
+    }
+  ]
+}

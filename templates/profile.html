@@ -56,7 +56,7 @@ body{
 .title{
     text-align:center;
     font-size:40px;
-    color:#38bdf8;
+    color:#34d399;
     font-weight:bold;
     margin-top:10px;
 }
@@ -83,7 +83,7 @@ body{
 }
 
 .label{
-    color:#38bdf8;
+    color:#34d399;
     font-weight:bold;
 }
 
@@ -111,7 +111,7 @@ body{
 .number{
     font-size:32px;
     font-weight:bold;
-    color:#38bdf8;
+    color:#34d399;
 }
 
 .security{
@@ -170,20 +170,36 @@ button:hover{
 </head>
 
 <body>
+<nav class="app-nav" aria-label="Main navigation">
+    <a class="app-brand" href="{{ url_for('home') }}">UPI Shield AI</a>
+    <div class="app-nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('checker') }}">Scan</a>
+        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <form method="post" action="{{ url_for('logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="nav-signout">Sign out</button>
+        </form>
+    </div>
+</nav>
 
 <div class="profile-card">
 
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for category, message in messages %}<p role="alert" class="{{ category }}">{{ message }}</p>{% endfor %}
+{% endwith %}
+
+{% if user[4] and user[4] != 'default.png' %}
 <img
-src="/static/uploads/{{ user[4] }}"
+src="{{ url_for('profile_photo', filename=user[4]) }}"
+alt="Profile photo"
 width="150"
 height="150"
-style="
-border-radius:50%;
-object-fit:cover;
-border:4px solid #38bdf8;
-display:block;
-margin:auto;
-">
+style="border-radius:50%;object-fit:cover;border:4px solid #34d399;display:block;margin:auto;">
+{% else %}
+<div class="avatar" role="img" aria-label="No profile photo">👤</div>
+{% endif %}
 
 <form
 action="/upload_photo"
@@ -192,9 +208,12 @@ enctype="multipart/form-data"
 style="text-align:center;margin-top:20px;"
 >
 
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
 <input
 type="file"
 name="photo"
+accept="image/jpeg,image/png"
 required>
 
 <br><br>

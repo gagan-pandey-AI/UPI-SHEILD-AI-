@@ -1,0 +1,8 @@
+{"id": "hinglish-001", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "Paisa receive karne ke liye UPI request approve karo.", "data_origin": "synthetic", "locale": "hi-Latn"}
+{"id": "hinglish-002", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "Apna OTP batao, warna account block ho jayega.", "data_origin": "synthetic", "locale": "hi-Latn"}
+{"id": "hinglish-003", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "Bijli bill abhi bharo warna connection band ho jayega.", "data_origin": "synthetic", "locale": "hi-Latn"}
+{"id": "hinglish-004", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "Ghar baithe part-time kaam karke daily income kamao.", "data_origin": "synthetic", "locale": "hi-Latn"}
+{"id": "hinglish-005", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "Refund lene ke liye link kholo aur PIN enter karo.", "data_origin": "synthetic", "locale": "hi-Latn"}
+{"id": "hinglish-006", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "KYC karo nahi to account suspend ho jayega.", "data_origin": "synthetic", "locale": "hi-Latn"}
+{"id": "hinglish-007", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "Mubarak ho! reward claim karne ke liye apna OTP batao aur link kholo.", "data_origin": "synthetic", "locale": "hi-Latn"}
+{"id": "hinglish-008", "task": "sms", "category": "hinglish scam messages", "label": "positive", "text": "Telegram task complete karo, registration fee do, phir daily income milegi.", "data_origin": "synthetic", "locale": "hi-Latn"}

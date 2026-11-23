@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>UPI Shield AI</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Review suspicious SMS, UPI requests, QR codes, and links with explainable safety checks.">
+    <title>UPI Shield AI | Scam safety checks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="landing-page">
+    <nav class="app-nav" aria-label="Main navigation">
+        <a class="app-brand" href="{{ url_for('home') }}">UPI Shield AI</a>
+        <div class="app-nav-links">
+            <a href="{{ url_for('login') }}">Sign in</a>
+            <a class="button" href="{{ url_for('register') }}">Create account</a>
+        </div>
+    </nav>
 
-    <h1>🛡️ UPI Shield AI</h1>
+    <main class="landing-main">
+        <section class="landing-hero card">
+            <p class="eyebrow">A practical check before you act</p>
+            <h1>Pause. Check the message. Protect your payment.</h1>
+            <p class="landing-lead">Review suspicious SMS and UPI messages, inspect URL structure, and extract text or QR content from an image.</p>
+            <p>Findings come from explainable local rules and optional URL reputation checks. Scores are heuristic weights, not probabilities, and a clean result does not prove a message is safe.</p>
+            <div class="landing-actions">
+                <a class="button" href="{{ url_for('register') }}">Create a free account</a>
+                <a class="button button-secondary" href="{{ url_for('login') }}">Sign in</a>
+            </div>
+            <p class="landing-note">Messages and uploaded images are not saved by the image scan. Saved SMS history is available only to the signed-in account owner.</p>
+        </section>
 
-    <h2>Protect Yourself From Cyber Fraud</h2>
-
-    <br>
-
-    <a href="/register">
-        <button>Create Account</button>
-    </a>
-
-    <br><br>
-
-    <a href="/login">
-        <button>Login</button>
-    </a>
-
+        <section class="landing-grid" aria-label="What you can check">
+            <article class="card landing-feature">
+                <h2>Message patterns</h2>
+                <p>Review common KYC, credential, refund, reward, job, and UPI payment manipulation cues.</p>
+            </article>
+            <article class="card landing-feature">
+                <h2>Links and QR content</h2>
+                <p>Inspect URL structure and decoded QR payloads without opening links or sending payments.</p>
+            </article>
+            <article class="card landing-feature">
+                <h2>Clear next steps</h2>
+                <p>See the indicators, limitations, and a safer action with every assessment.</p>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

@@ -1,38 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Scan History</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Scan History | UPI Shield AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
-    <h1>📜 Scan History</h1>
-
-    <table border="1" cellpadding="10">
-
-        <tr>
-            <th>Status</th>
-            <th>Risk Score</th>
-            <th>Date</th>
-        </tr>
-
+<nav class="app-nav" aria-label="Main navigation">
+    <a class="app-brand" href="{{ url_for('home') }}">UPI Shield AI</a>
+    <div class="app-nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('checker') }}">Scan</a>
+        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <form method="post" action="{{ url_for('logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="nav-signout">Sign out</button>
+        </form>
+    </div>
+</nav>
+<main class="container history-page">
+    <h1>Your scan history</h1>
+    <p>Only your saved scan records are shown here. Reports omit submitted message text.</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}<p class="flash {{ category }}" role="status">{{ message }}</p>{% endfor %}
+    {% endwith %}
+    <div class="history-table-wrap">
+      <table class="history-table">
+        <thead><tr><th>Date</th><th>Assessment</th><th>Heuristic score</th><th>Actions</th></tr></thead>
+        <tbody>
         {% for item in history %}
-
-        <tr>
-            <td>{{ item[0] }}</td>
-            <td>{{ item[1] }}</td>
-            <td>{{ item[2] }}</td>
-        </tr>
-
+          <tr>
+            <td>{{ item['scan_date'] }}</td>
+            <td>{{ item['status'] }}</td>
+            <td>{{ item['risk_score'] }}/100</td>
+            <td class="history-actions">
+              <a class="button" href="{{ url_for('download_scan_report', scan_id=item['id']) }}">Download PDF</a>
+              <form method="post" action="{{ url_for('delete_scan', scan_id=item['id']) }}" onsubmit="return confirm('Delete this scan-history record? This cannot be undone.');">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button class="button danger-button" type="submit">Delete my record</button>
+              </form>
+            </td>
+          </tr>
+        {% else %}
+          <tr><td colspan="4">You have no saved scan records.</td></tr>
         {% endfor %}
-
-    </table>
-
-    <br>
-
-    <a href="/dashboard">
-        <button>⬅ Back Dashboard</button>
-    </a>
-
+        </tbody>
+      </table>
+    </div>
+    <p><a class="button" href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+</main>
 </body>
 </html>

@@ -1,0 +1,8 @@
+{"id": "url-good-001", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://example.test/", "data_origin": "synthetic", "locale": "en"}
+{"id": "url-good-002", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://bank.example.test/statement", "data_origin": "synthetic", "locale": "en"}
+{"id": "url-good-003", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://shop.example.test/payments", "data_origin": "synthetic", "locale": "en"}
+{"id": "url-good-004", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://cafe.example.test/menu", "data_origin": "synthetic", "locale": "en"}
+{"id": "url-good-005", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://service.example.test/help/account", "data_origin": "synthetic", "locale": "en"}
+{"id": "url-good-006", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://gov.example.test/contact", "data_origin": "synthetic", "locale": "en"}
+{"id": "url-good-007", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://docs.example.test/security", "data_origin": "synthetic", "locale": "en"}
+{"id": "url-good-008", "task": "url", "category": "legitimate urls", "label": "negative", "text": "https://events.example.test/tickets", "data_origin": "synthetic", "locale": "en"}

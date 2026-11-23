@@ -1,0 +1,8 @@
+{"id": "upi-001", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "Approve this UPI collect request to receive money.", "data_origin": "synthetic", "locale": "en"}
+{"id": "upi-002", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "Paisa receive karne ke liye UPI request approve karo.", "data_origin": "synthetic", "locale": "en"}
+{"id": "upi-003", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "Enter your UPI PIN to get the payment credited.", "data_origin": "synthetic", "locale": "en"}
+{"id": "upi-004", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "Payment request to receive money. Approve it now.", "data_origin": "synthetic", "locale": "en"}
+{"id": "upi-005", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "Paise lene ke liye pin aur anumati dein.", "data_origin": "synthetic", "locale": "en"}
+{"id": "upi-006", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "Please confirm the UPI collect request by entering your PIN.", "data_origin": "synthetic", "locale": "en"}
+{"id": "upi-007", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "Refund lene ke liye payment approve karo.", "data_origin": "synthetic", "locale": "en"}
+{"id": "upi-008", "task": "sms", "category": "upi scam messages", "label": "positive", "text": "A collect request is waiting. Approve it to receive your cash prize.", "data_origin": "synthetic", "locale": "en"}

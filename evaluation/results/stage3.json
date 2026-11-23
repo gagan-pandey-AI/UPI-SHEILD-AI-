@@ -1,0 +1,314 @@
+{
+  "evaluation_date": "2026-11-23",
+  "method": "The existing offline rules are evaluated as binary positive (SUSPICIOUS/FRAUD or a structural indicator) versus negative. Reputation providers are not called.",
+  "limitations": [
+    "Synthetic fixture metrics are rule-path sanity checks only; they are not real-world accuracy estimates.",
+    "The UCI SMS corpus is old, English-heavy, and not representative of Indian UPI scams. Spam and fraud are not equivalent labels.",
+    "URL and QR fixtures test structural warnings. Reputation providers are mocked by omission and are never contacted.",
+    "Results measure this fixed rule set and threshold. They do not establish production-grade performance."
+  ],
+  "synthetic_datasets": [
+    {
+      "name": "fraudulent_sms.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 12,
+      "class_distribution": {
+        "positive": 12
+      },
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": {
+        "true_positive": 12,
+        "true_negative": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0
+    },
+    {
+      "name": "hindi_scam_messages.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 8,
+      "class_distribution": {
+        "positive": 8
+      },
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": {
+        "true_positive": 8,
+        "true_negative": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0
+    },
+    {
+      "name": "hinglish_scam_messages.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 8,
+      "class_distribution": {
+        "positive": 8
+      },
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": {
+        "true_positive": 8,
+        "true_negative": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0
+    },
+    {
+      "name": "legitimate_sms.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 12,
+      "class_distribution": {
+        "negative": 12
+      },
+      "accuracy": 1.0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "confusion_matrix": {
+        "true_positive": 0,
+        "true_negative": 12,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": 0.0,
+      "false_negative_rate": null
+    },
+    {
+      "name": "legitimate_urls.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 8,
+      "class_distribution": {
+        "negative": 8
+      },
+      "accuracy": 1.0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "confusion_matrix": {
+        "true_positive": 0,
+        "true_negative": 8,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": 0.0,
+      "false_negative_rate": null
+    },
+    {
+      "name": "phishing_urls.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 8,
+      "class_distribution": {
+        "positive": 8
+      },
+      "accuracy": 0.875,
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.933333,
+      "confusion_matrix": {
+        "true_positive": 7,
+        "true_negative": 0,
+        "false_positive": 0,
+        "false_negative": 1
+      },
+      "false_positive_rate": null,
+      "false_negative_rate": 0.125
+    },
+    {
+      "name": "qr_suspicious_scenarios.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 8,
+      "class_distribution": {
+        "positive": 4,
+        "negative": 4
+      },
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": {
+        "true_positive": 4,
+        "true_negative": 4,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "name": "upi_scam_messages.jsonl",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "No external collection; URLs use .test domains and documentation-only IP addresses.",
+      "sample_count": 8,
+      "class_distribution": {
+        "positive": 8
+      },
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": {
+        "true_positive": 8,
+        "true_negative": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": null,
+      "false_negative_rate": 0.0
+    }
+  ],
+  "synthetic_combined_metrics": [
+    {
+      "name": "synthetic_sms_combined",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "Combined authored fixtures for this input type; not representative field data.",
+      "sample_count": 48,
+      "class_distribution": {
+        "positive": 36,
+        "negative": 12
+      },
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": {
+        "true_positive": 36,
+        "true_negative": 12,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    },
+    {
+      "name": "synthetic_url_combined",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "Combined authored fixtures for this input type; not representative field data.",
+      "sample_count": 16,
+      "class_distribution": {
+        "negative": 8,
+        "positive": 8
+      },
+      "accuracy": 0.9375,
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.933333,
+      "confusion_matrix": {
+        "true_positive": 7,
+        "true_negative": 8,
+        "false_positive": 0,
+        "false_negative": 1
+      },
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.125
+    },
+    {
+      "name": "synthetic_qr_payload_combined",
+      "data_origin": "synthetic",
+      "source": "Project-authored scenario fixtures; no real URLs or real payment details",
+      "license": "Project-authored synthetic test data",
+      "preprocessing": "Combined authored fixtures for this input type; not representative field data.",
+      "sample_count": 8,
+      "class_distribution": {
+        "positive": 4,
+        "negative": 4
+      },
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "confusion_matrix": {
+        "true_positive": 4,
+        "true_negative": 4,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0
+    }
+  ],
+  "public_dataset_metrics": [
+    {
+      "name": "uci_sms_spam_collection",
+      "data_origin": "public_real_world_research_corpus",
+      "source": "Almeida, T. & Hidalgo, J. (2011), SMS Spam Collection, UCI Machine Learning Repository",
+      "license": "CC BY 4.0",
+      "preprocessing": "Read the original tab-separated label and message; map ham to negative and spam to positive. No text normalization beyond the detector own NFKC/casefold processing. Spam is only a broad proxy, not equivalent to fraud or UPI scams.",
+      "sample_count": 5574,
+      "class_distribution": {
+        "negative": 4827,
+        "positive": 747
+      },
+      "accuracy": 0.866703,
+      "precision": 0.7,
+      "recall": 0.009371,
+      "f1": 0.018494,
+      "confusion_matrix": {
+        "true_positive": 7,
+        "true_negative": 4824,
+        "false_positive": 3,
+        "false_negative": 740
+      },
+      "false_positive_rate": 0.000622,
+      "false_negative_rate": 0.990629,
+      "collection_date": "Underlying message collection dates are not fully specified by UCI; donated to UCI on 2012-06-21.",
+      "source_doi": "10.24432/C5CC84",
+      "source_url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+      "sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3"
+    }
+  ],
+  "excluded_public_dataset": {
+    "id": "uci_phishing_websites_excluded",
+    "file": null,
+    "source": "Mohammad, R. & McCluskey, L. (2012), Phishing Websites, UCI Machine Learning Repository",
+    "source_url": "https://archive.ics.uci.edu/dataset/327/phishing",
+    "doi": "10.24432/C51W2X",
+    "license": "CC BY 4.0",
+    "collection_date": "Donated to UCI on 2015-03-25; upstream records vary.",
+    "sample_count": 11055,
+    "class_distribution": "Not evaluated",
+    "preprocessing": "Reviewed but excluded from raw-URL metrics: its 30 columns are engineered features, not URL strings, so they cannot exercise this URL parser.",
+    "data_origin": "public_dataset_reviewed_but_not_used"
+  }
+}

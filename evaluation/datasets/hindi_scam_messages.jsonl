@@ -1,0 +1,8 @@
+{"id": "hindi-001", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "आपका बैंक खाता बंद होगा, तुरंत केवाईसी अपडेट करें", "data_origin": "synthetic", "locale": "hi"}
+{"id": "hindi-002", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "अपना ओटीपी बताएं और इनाम प्राप्त करें", "data_origin": "synthetic", "locale": "hi"}
+{"id": "hindi-003", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "बिजली बिल अभी भरो वरना connection बंद हो जाएगा", "data_origin": "synthetic", "locale": "hi"}
+{"id": "hindi-004", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "मीटर कट जाएगा, अभी भुगतान करें", "data_origin": "synthetic", "locale": "hi"}
+{"id": "hindi-005", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "आज ही KYC अपडेट करो वरना खाता बंद", "data_origin": "synthetic", "locale": "hi"}
+{"id": "hindi-006", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "पैसे पाने के लिए PIN दें और payment approve karo", "data_origin": "synthetic", "locale": "hi"}
+{"id": "hindi-007", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "इनाम पाने के लिए अपना OTP बताएं और यह लिंक खोलें.", "data_origin": "synthetic", "locale": "hi"}
+{"id": "hindi-008", "task": "sms", "category": "hindi scam messages", "label": "positive", "text": "आपका refund pending, link पर OTP दर्ज करें", "data_origin": "synthetic", "locale": "hi"}

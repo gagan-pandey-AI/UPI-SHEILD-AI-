@@ -1,84 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPI Shield AI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="/static/style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<title>UPI Shield AI - AI Fraud Checker</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
+
 <body>
 
-    <div class="container">
+<nav class="app-nav" aria-label="Main navigation">
+    <a class="app-brand" href="{{ url_for('home') }}">UPI Shield AI</a>
+    <div class="app-nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <form method="post" action="{{ url_for('logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="nav-signout">Sign out</button>
+        </form>
+    </div>
+</nav>
 
-        <h1>🛡️ UPI Shield AI</h1>
-        <p class="subtitle">
-            Protect Yourself From SMS, UPI & Cyber Fraud
-        </p>
+<div class="container fade-in">
 
-        <textarea
-            id="smsBox"
-            placeholder="Paste suspicious SMS here..."
-            rows="8"></textarea>
+    <div id="toastRegion" class="toast-region" role="status" aria-live="polite"></div>
 
-        <div class="buttons">
+    <h1>UPI Shield AI</h1>
 
-            <button onclick="pasteClipboard()">
-                📋 Paste From Clipboard
-            </button>
+    <p class="subtitle">
+        Rule-based SMS, UPI, and phishing scam analysis
+    </p>
 
-            <button onclick="checkFraud()">
-                🔍 Check Fraud
-            </button>
+    <!-- AI Scanner -->
 
-        </div>
+    <div class="scanner">
 
-        <div id="result" class="result">
-            Waiting for analysis...
+        <div class="scan-bar"></div>
+
+    </div>
+
+    <!-- Input -->
+
+    <label for="smsBox">Message text to analyze</label>
+    <textarea
+        id="smsBox"
+        maxlength="10000"
+        placeholder="Paste suspicious SMS or UPI message here..."></textarea>
+
+    <!-- Buttons -->
+
+    <div class="buttons">
+
+        <button type="button" onclick="pasteClipboard()">
+
+            📋 Paste
+
+        </button>
+
+        <button type="button" onclick="checkFraud()">
+
+            🤖 Analyze Message
+
+        </button>
+
+    </div>
+
+    <p class="privacy-notice" role="note">
+        URL reputation is optional. When configured, extracted URLs may be sent to the selected provider, including their paths and query strings. The current Google Safe Browsing v4 adapter is deprecated and non-commercial only; do not use it for a commercial product. Reputation checks can miss unsafe sites or flag safe ones. <a href="https://developers.google.com/safe-browsing/v4/usage-limits" target="_blank" rel="noopener noreferrer">Provider use and warning terms</a>.
+    </p>
+
+    <section class="card mt-30" aria-labelledby="imageScanTitle">
+        <h2 id="imageScanTitle">Scan text in an image</h2>
+        <p>PNG or JPEG, up to 4 MB and 20 million pixels. OCR and QR decoding run locally; uploads and extracted text are not saved.</p>
+        <p class="ocr-status" role="status" aria-live="polite">{{ ocr_status.message }}</p>
+        <input id="imageFile" type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg">
+        <button id="imageScanButton" type="button" onclick="scanImage()">Extract text and QR content</button>
+        <section id="imageReview" class="image-review" hidden aria-labelledby="imageReviewTitle">
+            <h3 id="imageReviewTitle">Review extracted text</h3>
+            <p>Check or edit the OCR result before running the scam-pattern analysis. It is not saved.</p>
+            <label for="extractedImageText">Text extracted from your image</label>
+            <textarea id="extractedImageText" maxlength="10000" rows="7"></textarea>
+            <button id="analyzeImageTextButton" type="button" onclick="analyzeImageText()">Analyze reviewed text</button>
+        </section>
+        <div id="imageScanResult" class="result" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- Risk Meter -->
+
+    <div class="risk-container">
+
+        <h2>Heuristic Risk Score (0–100, not a probability)</h2>
+
+        <div class="risk-meter">
+
+            <div id="riskValue" aria-live="polite" aria-atomic="true">
+
+                0/100
+
+            </div>
+
         </div>
 
     </div>
+
+    <!-- Result -->
+
+    <div id="result" class="result" role="status" aria-live="polite" aria-atomic="true">
+
+        Waiting for message analysis...
+
+    </div>
+
+    <!-- Recommendations -->
+
+    <div
+        id="recommendationBox"
+        class="card mt-30"
+        style="display:none;">
+
+        <h2>Safety recommendations</h2>
+
+        <div id="recommendations"></div>
+
+    </div>
+
+    <!-- Action Buttons -->
+
+    <div id="actionButtons" class="action-buttons" style="display:none;">
+        <a class="button" href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer">Report cyber crime</a>
+        <a class="button" href="tel:1930">Call 1930</a>
+        <a class="button" href="{{ url_for('dashboard') }}">Dashboard</a>
+    </div>
+
+    <div class="footer">
+
+        🇮🇳 Made in India
+
+        <br><br>
+
+        Developed by <b>Gagan Pandey</b>
+
+        <br><br>
+
+        UPI Shield AI © 2026
+
+    </div>
+
+</div>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>
-
-
-
-
-<div class="risk-container">
-
-    <h3>Risk Score</h3>
-
-    <div class="risk-meter">
-
-        <div id="riskValue">
-            0%
-        </div>
-
-    </div>
-
-</div>
-
-
-
-
-<div id="actionButtons" style="display:none; margin-top:20px;">
-
-    <a href="https://cybercrime.gov.in" target="_blank">
-        <button>🚨 Report Cyber Crime</button>
-    </a>
-
-    <a href="tel:1930">
-        <button>📞 Call 1930</button>
-    </a>
-
-</div>
-
-
-
-
-<div class="scanner">
-    <div class="scan-bar"></div>
-</div>

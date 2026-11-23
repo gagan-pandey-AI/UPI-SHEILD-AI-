@@ -1,455 +1,762 @@
-
-<div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Cyber Security">
-</div>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UPI Shield AI Dashboard</title>
-<link rel="stylesheet" href="/static/style.css">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    min-height:100vh;
-    background:linear-gradient(
-        135deg,
-        #020617,
-        #0f172a,
-        #1e293b,
-        #0f172a
-    );
-    color:white;
-    overflow-x:hidden;
-}
-
-/* Animated Background */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    background:#00d4ff30;
-    border-radius:50%;
-    filter:blur(120px);
-    top:-200px;
-    left:-150px;
-    animation:move1 10s infinite alternate;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    background:#4f46e530;
-    border-radius:50%;
-    filter:blur(120px);
-    bottom:-150px;
-    right:-150px;
-    animation:move2 10s infinite alternate;
-}
-
-@keyframes move1{
-    from{transform:translateX(0);}
-    to{transform:translateX(150px);}
-}
-
-@keyframes move2{
-    from{transform:translateX(0);}
-    to{transform:translateX(-150px);}
-}
-
-.container{
-    width:90%;
-    margin:auto;
-    padding:30px;
-    position:relative;
-    z-index:1;
-}
-
-/* Header */
-
-.header{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.logo{
-    font-size:70px;
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-    100%{transform:scale(1);}
-}
-
-.title{
-    font-size:55px;
-    font-weight:bold;
-    color:#38bdf8;
-
-    text-shadow:
-    0 0 10px #38bdf8,
-    0 0 20px #38bdf8,
-    0 0 40px #38bdf8;
-
-    animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-
-    from{
-        text-shadow:
-        0 0 10px #38bdf8;
-    }
-
-    to{
-        text-shadow:
-        0 0 20px #38bdf8,
-        0 0 40px #38bdf8,
-        0 0 60px #38bdf8;
-    }
-}
-
-.subtitle{
-    margin-top:10px;
-    color:#cbd5e1;
-    font-size:18px;
-}
-
-.made{
-    margin-top:10px;
-    color:#22c55e;
-    font-weight:bold;
-}
-
-.creator{
-    color:#fbbf24;
-    margin-top:5px;
-}
-
-/* Hero */
-
-.hero{
-    margin-top:30px;
-    padding:30px;
-    border-radius:25px;
-
-    background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(15px);
-
-    text-align:center;
-
-    border:1px solid rgba(255,255,255,0.1);
-}
-
-.hero h2{
-    color:#38bdf8;
-    margin-bottom:15px;
-}
-
-.hero p{
-    color:#e2e8f0;
-    line-height:1.8;
-}
-
-/* Cards */
-
-.card{
-
-    width:260px;
-    padding:30px;
-
-    background:rgba(255,255,255,0.05);
-
-    backdrop-filter:blur(25px);
-
-    border-radius:25px;
-
-    border:1px solid rgba(56,189,248,.25);
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:.4s;
-}
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-100%;
-
-    left:-100%;
-
-    width:200%;
-
-    height:200%;
-
-    background:
-    linear-gradient(
-    45deg,
-    transparent,
-    rgba(255,255,255,.15),
-    transparent
-    );
-
-    transition:.6s;
-}
-
-.card:hover::before{
-
-    top:100%;
-    left:100%;
-}
-
-.card:hover{
-
-    transform:
-    translateY(-12px)
-    scale(1.04);
-
-    box-shadow:
-    0 0 35px #38bdf8;
-}
-
-
-
-/* Buttons */
-
-.buttons{
-    margin-top:40px;
-    text-align:center;
-}
-
-button{
-    padding:14px 22px;
-    margin:10px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:linear-gradient(
-        135deg,
-        #00d4ff,
-        #2563eb
-    );
-
-    color:white;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-/* Features */
-
-.features{
-    margin-top:50px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-}
-
-.feature{
-    width:300px;
-    padding:20px;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(10px);
-}
-
-.feature h3{
-    color:#38bdf8;
-    margin-bottom:10px;
-}
-
-/* Footer */
-
-.footer{
-    text-align:center;
-    margin-top:60px;
-    padding:20px;
-    color:#94a3b8;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+
+    <title>UPI Shield AI | Dashboard</title>
+
+    <meta name="description"
+          content="UPI Shield AI dashboard for intelligent fraud detection and cyber protection.">
+
+    <style>
+        /* =====================================
+           GLOBAL STYLES
+        ===================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #08131d;
+            --card-background: rgba(15, 32, 44, 0.92);
+            --primary: #34d399;
+            --secondary: #14b8a6;
+            --text: #f1f5f9;
+            --muted: #a7b4c8;
+            --border: rgba(255, 255, 255, 0.1);
+            --success: #34d399;
+            --warning: #facc15;
+            --danger: #fb7185;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            min-height: 100vh;
+            color: var(--text);
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(52, 211, 153, 0.12),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(20, 184, 166, 0.11),
+                    transparent 35%
+                ),
+                var(--background);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* =====================================
+           BACKGROUND EFFECTS
+        ===================================== */
+
+        .scan-line {
+            position: fixed;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--primary),
+                transparent
+            );
+            box-shadow: 0 0 20px var(--primary);
+            animation: scan 7s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes scan {
+            0% {
+                top: -10px;
+            }
+
+            100% {
+                top: 100vh;
+            }
+        }
+
+        .particles,
+        .particles2 {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.13;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particles {
+            top: 10%;
+            left: -180px;
+            background: var(--primary);
+        }
+
+        .particles2 {
+            right: -180px;
+            bottom: 5%;
+            background: var(--secondary);
+        }
+
+        /* =====================================
+           MAIN CONTAINER
+        ===================================== */
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: min(1150px, 92%);
+            margin: 35px auto;
+            padding: 35px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: rgba(7, 17, 31, 0.78);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        /* =====================================
+           HEADER
+        ===================================== */
+
+        .header {
+            text-align: center;
+            padding: 15px 0 30px;
+        }
+
+        .logo {
+            width: 82px;
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            border-radius: 24px;
+            background: rgba(0, 212, 255, 0.1);
+            font-size: 43px;
+            box-shadow: 0 0 35px rgba(0, 212, 255, 0.12);
+        }
+
+        .title {
+            font-size: clamp(30px, 5vw, 46px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                var(--primary),
+                #a99fff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .welcome {
+            color: white;
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .made {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e2e8f0;
+            font-size: 13px;
+        }
+
+        .creator {
+            margin-top: 13px;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* =====================================
+           HERO SECTION
+        ===================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            margin: 15px 0 30px;
+            padding: 35px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            background: linear-gradient(
+                120deg,
+                rgba(0, 212, 255, 0.09),
+                rgba(115, 103, 255, 0.12)
+            );
+        }
+
+        .hero h2 {
+            margin-bottom: 15px;
+            font-size: clamp(21px, 3vw, 29px);
+            line-height: 1.4;
+        }
+
+        .hero p {
+            max-width: 780px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 9px 14px;
+            border-radius: 8px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #86efac;
+            font-size: 13px;
+        }
+
+        /* =====================================
+           STATISTICS CARDS
+        ===================================== */
+
+        .section-heading {
+            margin: 30px 0 18px;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            min-width: 0;
+            padding: 23px 18px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--card-background);
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.45);
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .number {
+            font-size: clamp(27px, 4vw, 36px);
+            font-weight: 800;
+            overflow-wrap: anywhere;
+        }
+
+        .total .number {
+            color: var(--primary);
+        }
+
+        .fraud .number {
+            color: var(--danger);
+        }
+
+        .suspicious .number {
+            color: var(--warning);
+        }
+
+        .safe .number {
+            color: var(--success);
+        }
+
+        /* =====================================
+           NAVIGATION BUTTONS
+        ===================================== */
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin: 30px 0;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 52px;
+            padding: 13px 12px;
+            border: 1px solid rgba(0, 212, 255, 0.22);
+            border-radius: 12px;
+            background: rgba(0, 212, 255, 0.07);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            background: rgba(0, 212, 255, 0.16);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.08);
+        }
+
+        .logout {
+            border-color: rgba(251, 113, 133, 0.25);
+            background: rgba(251, 113, 133, 0.07);
+        }
+
+        .logout:hover {
+            border-color: var(--danger);
+            background: rgba(251, 113, 133, 0.15);
+        }
+
+        /* =====================================
+           FEATURE CARDS
+        ===================================== */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.025);
+            transition: all 0.25s ease;
+        }
+
+        .feature:hover {
+            border-color: rgba(115, 103, 255, 0.5);
+            background: rgba(115, 103, 255, 0.06);
+        }
+
+        .feature h3 {
+            margin-bottom: 13px;
+            font-size: 17px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        .footer {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer strong {
+            color: var(--primary);
+        }
+
+        .safety-centre { margin-top: 28px; }
+        .safety-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+        .analytics-card { padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--card-background); }
+        .analytics-card h3 { margin-bottom: 14px; }
+        .bar-row { display: grid; grid-template-columns: minmax(110px, 1fr) 2fr auto; gap: 10px; align-items: center; margin: 11px 0; color: var(--muted); font-size: 13px; }
+        .bar-track { height: 10px; background: rgba(148,163,184,.18); border-radius: 99px; overflow: hidden; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: inherit; }
+        .trend-bars { display: grid; grid-template-columns: repeat(8, minmax(24px, 1fr)); gap: 8px; align-items: end; min-height: 140px; }
+        .trend-item { display: flex; min-height: 120px; flex-direction: column; justify-content: end; align-items: center; gap: 6px; color: var(--muted); font-size: 11px; }
+        .trend-fill { width: min(100%, 32px); min-height: 2px; background: var(--primary); border-radius: 6px 6px 0 0; }
+        .safety-advice { padding-left: 1.2rem; color: var(--muted); line-height: 1.8; }
+        .dashboard-history { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .dashboard-history th, .dashboard-history td { padding: 10px 7px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+        .dashboard-history form { display: inline; }
+        .dashboard-history a, .dashboard-history button { color: var(--primary); background: transparent; border: 0; text-decoration: underline; cursor: pointer; margin-right: 8px; }
+        .dashboard-history .delete-link { color: var(--danger); }
+        .analytics-note { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+        /* =====================================
+           RESPONSIVE DESIGN
+        ===================================== */
+
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .buttons {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .safety-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                width: 94%;
+                margin: 15px auto;
+                padding: 20px 15px;
+                border-radius: 18px;
+            }
+
+            .hero {
+                padding: 23px 18px;
+            }
+
+            .cards {
+                gap: 10px;
+            }
+
+            .card {
+                padding: 18px 12px;
+            }
+
+            .card h3 {
+                font-size: 12px;
+            }
+
+            .number {
+                font-size: 27px;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                padding: 20px;
+            }
+
+            .dashboard-history { min-width: 620px; }
+            .analytics-card { overflow-x: auto; }
+        }
+
+        /* =====================================
+           ACCESSIBILITY
+        ===================================== */
+
+        a:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="scan-line"></div>
 
-    <div class="particles"></div>
-<div class="particles2"></div>
+    <!-- Animated background -->
+    <div class="scan-line" aria-hidden="true"></div>
+    <div class="particles" aria-hidden="true"></div>
+    <div class="particles2" aria-hidden="true"></div>
 
-<div class="container">
+    <!-- Main dashboard -->
+    <main class="container">
 
-<div class="header">
+        <!-- Header -->
+        <header class="header">
 
-<div class="logo">🛡️</div>
+            <div class="logo" aria-hidden="true">🛡️</div>
 
-<div class="title">
-UPI Shield AI
-</div>
+            <h1 class="title">UPI Shield AI</h1>
 
-<div class="subtitle">
-Welcome back, {{ user_name }} 👋
-</div>
+            <p class="subtitle welcome">
+                Welcome back, {{ user_name | e }} 👋
+            </p>
 
-<div class="subtitle">
-AI Powered Fraud Detection Platform
-</div>
+            <p class="subtitle">
+                Explainable Rule-Based Fraud Assessment
+            </p>
 
-<div class="subtitle">
-AI Powered Fraud Detection Platform
-</div>
+            <div class="made">
+                🇮🇳 Made in India
+            </div>
 
-<div class="made">
-🇮🇳 Made in India
-</div>
+            <p class="creator">
+                Developed by Gagan Pandey
+            </p>
 
-<div class="creator">
-Developed by Gagan Pandey
-</div>
+        </header>
 
-</div>
+        <!-- Hero section -->
+        <section class="hero">
 
-<div class="hero">
+            <h2>
+                🤖 Protecting Users From Online Scams
+            </h2>
 
-<h2>
-🤖 Protecting Users From Online Scams
-</h2>
+            <p>
+                UPI Shield AI analyzes suspicious SMS messages,
+                phishing links, digital payment scams, and other
+                potential cyber threats using keyword-based
+                detection and risk scoring.
+            </p>
 
-<p>
-UPI Shield AI uses intelligent fraud detection
-to identify suspicious SMS messages, phishing links,
-UPI scams and cyber threats before they can harm users.
-</p>
+            <div class="hero-badge">
+                🛡️ Your digital safety starts here
+            </div>
 
-</div>
+        </section>
 
-<div class="cards">
+        <!-- Dashboard statistics -->
+        <section aria-labelledby="statistics-heading">
 
-<div class="card">
-<h3>📊 Total Scans</h3>
-<div class="number">{{ total_scans }}</div>
-</div>
+            <h2 class="section-heading" id="statistics-heading">
+                📊 Security Overview
+            </h2>
 
-<div class="card">
-<h3>🚨 Frauds</h3>
-<div class="number">{{ fraud_count }}</div>
-</div>
+            <div class="cards">
 
-<div class="card">
-<h3>⚠ Suspicious</h3>
-<div class="number">{{ suspicious_count }}</div>
-</div>
+                <article class="card total">
+                    <h3>📊 Total Scans</h3>
+                    <div class="number">
+                        {{ total_scans }}
+                    </div>
+                </article>
 
-<div class="card">
-<h3>✅ Safe</h3>
-<div class="number">{{ safe_count }}</div>
-</div>
+                <article class="card fraud">
+                    <h3>🚨 Frauds Detected</h3>
+                    <div class="number">
+                        {{ fraud_count }}
+                    </div>
+                </article>
 
-</div>
+                <article class="card suspicious">
+                    <h3>⚠️ Suspicious</h3>
+                    <div class="number">
+                        {{ suspicious_count }}
+                    </div>
+                </article>
 
-<div class="buttons">
+                <article class="card safe">
+                    <h3>✅ Safe</h3>
+                    <div class="number">
+                        {{ safe_count }}
+                    </div>
+                </article>
 
-<a href="/checker">
-<button>🔍 Start Fraud Check</button>
-</a>
+            </div>
 
-<a href="/history">
-<button>📜 Scan History</button>
-</a>
+        </section>
 
-<a href="/profile">
-<button>👤 My Profile</button>
-</a>
+        <!-- Dashboard navigation -->
+        <section aria-labelledby="actions-heading">
 
-<a href="/logout">
-<button>🚪 Logout</button>
-</a>
+            <h2 class="section-heading" id="actions-heading">
+                ⚡ Quick Actions
+            </h2>
 
-</div>
+            <nav class="buttons" aria-label="Dashboard navigation">
 
-<div class="features">
+                <a href="{{ url_for('checker') }}" class="button">
+                    🔍 Start Fraud Check
+                </a>
 
-<div class="feature">
-<h3>🧠 AI Analysis</h3>
-<p>
-Detects suspicious patterns and scam keywords.
-</p>
-</div>
+                <a href="{{ url_for('history') }}" class="button">
+                    📜 Scan History
+                </a>
 
-<div class="feature">
-<h3>🛡️ Cyber Protection</h3>
-<p>
-Protects users from phishing and fraud attempts.
-</p>
-</div>
+                <a href="{{ url_for('profile') }}" class="button">
+                    👤 My Profile
+                </a>
 
-<div class="feature">
-<h3>⚡ Real-Time Scanning</h3>
-<p>
-Instant fraud detection with risk scoring.
-</p>
-</div>
+                <a href="{{ url_for('simulator') }}" class="button">Scam Safety Simulator</a>
 
-</div>
+                <form method="POST" action="{{ url_for('logout') }}" style="display:inline; margin:0;">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="button logout">🚪 Logout</button>
+                </form>
 
-<div class="footer">
+            </nav>
 
-© 2026 UPI Shield AI <br>
-Built with Python, Flask & Artificial Intelligence
+        </section>
 
-</div>
+        <section class="safety-centre" aria-labelledby="safety-centre-heading">
+            <h2 class="section-heading" id="safety-centre-heading">Personal Scam Safety Centre</h2>
+            <p class="analytics-note">Counts and score ranges use all saved scans. Category labels are recomputed for the latest {{ category_sample_count }} scans; message text is not displayed here.</p>
+            <div class="safety-grid">
+                <article class="analytics-card">
+                    <h3>Scam-category breakdown</h3>
+                    {% for item in category_breakdown %}
+                      <div class="bar-row"><span>{{ item.category }}</span><span class="bar-track"><span class="bar-fill" style="display:block;width:{{ (100 * item.count / category_sample_count)|round|int if category_sample_count else 0 }}%"></span></span><strong>{{ item.count }}</strong></div>
+                    {% else %}<p>No saved scans to summarize yet.</p>{% endfor %}
+                    <p class="analytics-note">Each analyzed scan is counted once using its current primary heuristic category. The dashboard caps this breakdown at the latest {{ recent_analysis_limit }} scans.</p>
+                </article>
 
-</div>
+                <article class="analytics-card">
+                    <h3>Risk-score distribution</h3>
+                    {% for item in risk_distribution %}
+                      <div class="bar-row"><span>{{ item.label }}</span><span class="bar-track"><span class="bar-fill" style="display:block;width:{{ item.width }}%"></span></span><strong>{{ item.count }}</strong></div>
+                    {% endfor %}
+                    <p class="analytics-note">Ranges use saved heuristic scores; scores are not calibrated probabilities.</p>
+                </article>
 
-<div class="footer">
+                <article class="analytics-card">
+                    <h3>Weekly scans · last 8 weeks</h3>
+                    <div class="trend-bars" role="img" aria-label="Weekly scan counts for the last eight weeks">
+                    {% for item in weekly_trends %}
+                      <div class="trend-item"><strong>{{ item.count }}</strong><span class="trend-fill" style="height:{{ item.width }}%"></span><span>{{ item.label }}</span></div>
+                    {% endfor %}
+                    </div>
+                </article>
 
-    🛡️ UPI Shield AI <br>
+                <article class="analytics-card">
+                    <h3>Digital-safety reminders</h3>
+                    <ul class="safety-advice">
+                        <li>Never share an OTP, PIN, or password with a caller or message sender.</li>
+                        <li>Verify payment and account requests through an official app or known contact.</li>
+                        <li>Review UPI collect requests carefully; approving one can send money.</li>
+                        <li>Do not install remote-access apps at an unsolicited caller's request.</li>
+                    </ul>
+                    <p><a href="{{ url_for('simulator') }}">Practice with fictional scam examples</a></p>
+                </article>
 
-    AI Powered Fraud Detection Platform <br>
+                <article class="analytics-card" style="grid-column:1/-1">
+                    <h3>Your recent scans</h3>
+                    {% if recent_scans %}
+                    <div style="overflow-x:auto">
+                    <table class="dashboard-history">
+                      <thead><tr><th>Date</th><th>Result</th><th>Score</th><th>Actions</th></tr></thead>
+                      <tbody>{% for scan in recent_scans %}
+                        <tr>
+                          <td>{{ scan.scan_date }}</td><td>{{ scan.status }}</td><td>{{ scan.risk_score }}/100</td>
+                          <td>
+                            <a href="{{ url_for('download_scan_report', scan_id=scan.id) }}">PDF report</a>
+                            <form method="post" action="{{ url_for('delete_scan', scan_id=scan.id) }}" onsubmit="return confirm('Delete this scan-history record? This cannot be undone.');">
+                              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                              <button class="delete-link" type="submit">Delete my record</button>
+                            </form>
+                          </td>
+                        </tr>
+                      {% endfor %}</tbody>
+                    </table>
+                    </div>
+                    {% else %}<p>No saved scan records yet.</p>{% endif %}
+                    <p class="analytics-note"><a href="{{ url_for('history') }}">View all scan history</a></p>
+                </article>
+            </div>
+        </section>
 
-    🇮🇳 Made in India <br>
+        <!-- Platform features -->
+        <section aria-labelledby="features-heading">
 
-    Developed by Gagan Pandey
+            <h2 class="section-heading" id="features-heading">
+                🔐 Platform Features
+            </h2>
 
-</div>
+            <div class="features">
+
+                <article class="feature">
+                    <h3>🧠 Intelligent Analysis</h3>
+                    <p>
+                        Examines suspicious phrases and message
+                        patterns to estimate potential fraud risk.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <h3>🛡️ Cyber Protection</h3>
+                    <p>
+                        Helps identify potential phishing attempts,
+                        impersonation scams, and suspicious payment
+                        requests.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <h3>⚡ Rapid Scanning</h3>
+                    <p>
+                        Calculates a risk score and presents
+                        detection results for the submitted message.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Single footer -->
+        <footer class="footer">
+
+            <strong>🛡️ UPI Shield AI</strong>
+            <br>
+
+            Explainable Rule-Based Fraud Assessment
+            <br>
+
+            🇮🇳 Made in India
+            <br>
+
+            Developed by Gagan Pandey
+            <br>
+
+            © 2026 UPI Shield AI. All rights reserved.
+
+        </footer>
+
+    </main>
 
 </body>
 </html>

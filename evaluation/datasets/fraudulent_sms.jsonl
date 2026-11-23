@@ -1,0 +1,12 @@
+{"id": "fraud-001", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Your bank account is blocked. Update KYC immediately.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-002", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Share your OTP to receive the refund.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-003", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Congratulations, claim your cashback reward now.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-004", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Work from home, complete Telegram tasks for daily income.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-005", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Electricity bill due, pay now or connection will be disconnected.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-006", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Install AnyDesk so our agent can process your refund.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-007", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Your account will be blocked. Verify your account on this link now.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-008", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "A lottery prize is waiting. Pay a fee to claim the reward.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-009", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Enter your UPI PIN to receive the money.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-010", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Send your password and verification code to cancel the transfer.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-011", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Your refund is pending. Click this link and enter your OTP.", "data_origin": "synthetic", "locale": "en"}
+{"id": "fraud-012", "task": "sms", "category": "fraudulent sms", "label": "positive", "text": "Download APK and share your screen for account verification.", "data_origin": "synthetic", "locale": "en"}

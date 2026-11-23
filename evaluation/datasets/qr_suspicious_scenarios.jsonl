@@ -1,0 +1,8 @@
+{"id": "qr-bad-001", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "positive", "payload": "https://bit.ly/merchant-pay", "data_origin": "synthetic", "locale": "en"}
+{"id": "qr-bad-002", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "positive", "payload": "https://192.0.2.60/pay", "data_origin": "synthetic", "locale": "en"}
+{"id": "qr-bad-003", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "positive", "payload": "https://sbi.verify.example.test/login", "data_origin": "synthetic", "locale": "en"}
+{"id": "qr-bad-004", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "positive", "payload": "https://user@payments.example.test/checkout", "data_origin": "synthetic", "locale": "en"}
+{"id": "qr-good-001", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "negative", "payload": "https://merchant.example.test/menu", "data_origin": "synthetic", "locale": "en"}
+{"id": "qr-good-002", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "negative", "payload": "https://library.example.test/events", "data_origin": "synthetic", "locale": "en"}
+{"id": "qr-good-003", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "negative", "payload": "upi://pay?pa=merchant%40upi&pn=Example+Merchant&cu=INR", "data_origin": "synthetic", "locale": "en"}
+{"id": "qr-good-004", "task": "qr_payload", "category": "qr suspicious scenarios", "label": "negative", "payload": "UPI payment reference 7A4F; confirm the payee in your payment app.", "data_origin": "synthetic", "locale": "en"}

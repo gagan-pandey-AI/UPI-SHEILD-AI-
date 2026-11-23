@@ -1,30 +1,69 @@
+/* ===================================================
+   UPI Shield AI - Premium Cyber Security Theme
+   Version 15 - Part 1
+=================================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+}
+
+:root{
+
+    --bg1:#08131d;
+    --bg2:#0f1e29;
+    --bg3:#123b35;
+
+    --primary:#34d399;
+    --secondary:#14b8a6;
+    --purple:#0f766e;
+
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+
+    --white:#ffffff;
+    --text:#e2e8f0;
+    --glass:rgba(255,255,255,.08);
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
 }
 
 body{
+
+    font-family:"Segoe UI",sans-serif;
+
     min-height:100vh;
+
+    color:var(--white);
+
+    overflow-x:hidden;
+
+    position:relative;
 
     background:linear-gradient(
         -45deg,
-        #020617,
-        #0f172a,
-        #1e3a8a,
-        #06b6d4
+        var(--bg1),
+        var(--bg2),
+        var(--bg3),
+        #0f766e
     );
 
     background-size:400% 400%;
 
-    animation:bgMove 12s ease infinite;
+    animation:bgAnimation 15s ease infinite;
 
-    color:white;
 }
 
-@keyframes bgMove{
+/* Animated Background */
+
+@keyframes bgAnimation{
 
     0%{
         background-position:0% 50%;
@@ -37,305 +76,1176 @@ body{
     100%{
         background-position:0% 50%;
     }
+
 }
 
-button{
+/* Blue Glow */
 
-    padding:12px 20px;
+body::before{
 
-    border:none;
+    content:"";
 
-    border-radius:12px;
+    position:fixed;
 
-    background:linear-gradient(
-        135deg,
-        #00d4ff,
-        #2563eb
-    );
+    width:500px;
+    height:500px;
+
+    background:#06b6d455;
+
+    border-radius:50%;
+
+    filter:blur(130px);
+
+    top:-180px;
+    left:-180px;
+
+    animation:leftGlow 10s ease-in-out infinite alternate;
+
+    z-index:-2;
+
+}
+
+/* Purple Glow */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:450px;
+    height:450px;
+
+    background:#7c3aed55;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    right:-150px;
+    bottom:-150px;
+
+    animation:rightGlow 12s ease-in-out infinite alternate;
+
+    z-index:-2;
+
+}
+
+@keyframes leftGlow{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(140px);
+
+    }
+
+}
+
+@keyframes rightGlow{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(-150px);
+
+    }
+
+}
+
+/* Main Container */
+
+.container{
+
+    width:92%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:40px 20px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* Headings */
+
+h1{
+
+    font-size:48px;
+
+    color:var(--primary);
+
+    text-align:center;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 10px #38bdf8,
+        0 0 25px #38bdf8;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    color:var(--text);
+
+    opacity:.9;
+
+}
+
+
+
+
+
+
+
+/* ===================================================
+   UPI Shield AI - Premium Cyber Theme
+   Version 15 - Part 2
+=================================================== */
+
+/* Glass Cards */
+
+.card,
+.hero,
+.feature,
+.chart-box,
+.activity-box,
+.result,
+.risk-container{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:22px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.35);
+
+    transition:.35s ease;
+
+}
+
+.card:hover,
+.hero:hover,
+.feature:hover,
+.chart-box:hover,
+.activity-box:hover,
+.result:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#38bdf8;
+
+    box-shadow:
+        0 0 25px rgba(56,189,248,.45);
+
+}
+
+/* Textarea */
+
+textarea{
+
+    width:100%;
+
+    min-height:220px;
+
+    padding:20px;
+
+    margin-top:25px;
+
+    border-radius:18px;
+
+    border:2px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.06);
 
     color:white;
 
-    cursor:pointer;
+    font-size:16px;
+
+    resize:none;
+
+    outline:none;
 
     transition:.3s;
+
 }
 
-button:hover{
+textarea::placeholder{
 
-    transform:translateY(-5px);
+    color:#cbd5e1;
 
-    box-shadow:0 0 25px #38bdf8;
 }
+
+textarea:focus{
+
+    border-color:#38bdf8;
+
+    box-shadow:
+        0 0 25px rgba(56,189,248,.4);
+
+}
+
+/* Input */
 
 input{
 
     width:100%;
 
-    padding:12px;
+    padding:15px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:14px;
 
-    margin-top:10px;
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:16px;
+
+    margin-top:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+input::placeholder{
+
+    color:#cbd5e1;
+
 }
 
 input:focus{
 
-    outline:none;
-
-    box-shadow:0 0 20px #38bdf8;
-}
-
-
-
-
-
-.particles,
-.particles2{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    pointer-events:none;
-    z-index:0;
-}
-
-.particles::before{
-    content:"";
-    position:absolute;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#38bdf8;
     box-shadow:
-    100px 200px #38bdf8,
-    300px 100px #38bdf8,
-    500px 400px #38bdf8,
-    800px 200px #38bdf8,
-    1000px 500px #38bdf8;
-    animation:floatDots 15s linear infinite;
+        0 0 20px #38bdf8;
+
 }
 
-@keyframes floatDots{
-    from{
-        transform:translateY(100vh);
-    }
-    to{
-        transform:translateY(-100px);
-    }
-}
-
-
-
-
-.scan-line{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:4px;
-
-    background:#38bdf8;
-
-    box-shadow:0 0 20px #38bdf8;
-
-    animation:scan 5s linear infinite;
-
-    z-index:999;
-}
-
-@keyframes scan{
-
-    0%{
-        top:0;
-    }
-
-    100%{
-        top:100%;
-    }
-}
-
-
-.hero-image img{
-    width:100%;
-    max-height:300px;
-    object-fit:cover;
-    border-radius:20px;
-    margin-top:20px;
-    box-shadow:0 0 30px rgba(0,212,255,0.4);
-}
-
-
-
-
-.scanner{
-    width:300px;
-    height:300px;
-    border:3px solid #00d4ff;
-    border-radius:50%;
-    margin:auto;
-    position:relative;
-    overflow:hidden;
-}
-
-.scan-bar{
-    width:100%;
-    height:5px;
-    background:#00ff99;
-    position:absolute;
-    animation:scan 2s infinite linear;
-}
-
-@keyframes scan{
-    from{top:0;}
-    to{top:100%;}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-body{
-    font-family: Arial, sans-serif;
-    background:#0f172a;
-    color:white;
-    text-align:center;
-}
-
-.container{
-    width:80%;
-    max-width:900px;
-    margin:auto;
-    margin-top:40px;
-}
-
-h1{
-    color:#38bdf8;
-    font-size:42px;
-}
-
-.subtitle{
-    color:#cbd5e1;
-    margin-bottom:25px;
-}
-
-textarea{
-    width:100%;
-    padding:15px;
-    font-size:16px;
-    border-radius:10px;
-    border:none;
-    resize:none;
-}
+/* Buttons */
 
 .buttons{
-    margin-top:20px;
-}
-
-button{
-    padding:12px 25px;
-    margin:10px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:17px;
-    font-weight:bold;
-}
-
-button:hover{
-    opacity:0.9;
-}
-
-.result{
-    margin-top:25px;
-    padding:20px;
-    border-radius:12px;
-    background:white;
-    color:black;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.safe{
-    background:#22c55e;
-    color:white;
-}
-
-.suspicious{
-    background:#f59e0b;
-    color:white;
-}
-
-.fraud{
-    background:#ef4444;
-    color:white;
-}
-
-
-
-a{
-    text-decoration:none;
-}
-
-#actionButtons button{
-    margin:10px;
-}
-
-
-
-
-
-.footer{
-
-    text-align:center;
-
-    margin-top:60px;
-
-    padding:20px;
-
-    color:#94a3b8;
-
-    font-size:15px;
-}
-
-
-
-
-.risk-meter{
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    border:10px solid #38bdf8;
 
     display:flex;
 
-    align-items:center;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:30px;
+
+}
+
+button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #06b6d4,
+        #2563eb
+    );
+
+    transition:.35s;
+
+    box-shadow:
+        0 8px 20px rgba(37,99,235,.35);
+
+}
+
+button:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 0 28px rgba(56,189,248,.6);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* Result Box */
+
+.result{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:700;
+
+}
+
+/* Status Colors */
+
+.safe{
+
+    border-left:6px solid #22c55e;
+
+}
+
+.suspicious{
+
+    border-left:6px solid #f59e0b;
+
+}
+
+.fraud{
+
+    border-left:6px solid #ef4444;
+
+}
+
+
+
+
+
+/* ===================================================
+   UPI Shield AI - Premium Cyber Theme
+   Version 15 - Part 3
+=================================================== */
+
+/* ===== AI Scanner ===== */
+
+.scanner{
+
+    width:260px;
+    height:260px;
+
+    margin:40px auto;
+
+    border-radius:50%;
+
+    border:4px solid rgba(56,189,248,.35);
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 25px rgba(56,189,248,.35),
+        inset 0 0 25px rgba(56,189,248,.15);
+
+}
+
+.scan-bar{
+
+    position:absolute;
+
+    left:0;
+
+    width:100%;
+
+    height:6px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #22d3ee,
+        transparent
+    );
+
+    box-shadow:0 0 20px #22d3ee;
+
+    animation:scannerMove 2.4s linear infinite;
+
+}
+
+@keyframes scannerMove{
+
+    0%{
+
+        top:0;
+
+    }
+
+    100%{
+
+        top:100%;
+
+    }
+
+}
+
+/* ===== Risk Meter ===== */
+
+.risk-container{
+
+    margin-top:35px;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+.risk-meter{
+
+    width:190px;
+    height:190px;
+
+    margin:25px auto;
+
+    border-radius:50%;
+
+    border:10px solid rgba(56,189,248,.5);
+
+    display:flex;
 
     justify-content:center;
 
-    margin:auto;
+    align-items:center;
 
-    font-size:35px;
+    font-size:38px;
 
     font-weight:bold;
 
     color:#38bdf8;
 
-    box-shadow:0 0 25px #38bdf8;
+    background:rgba(255,255,255,.05);
+
+    box-shadow:
+        0 0 30px rgba(56,189,248,.45),
+        inset 0 0 20px rgba(56,189,248,.15);
+
+    animation:riskPulse 2s infinite;
+
 }
+
+@keyframes riskPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===== Floating Particles ===== */
+
+.particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+.particles span{
+
+    position:absolute;
+
+    display:block;
+
+    width:4px;
+
+    height:4px;
+
+    border-radius:50%;
+
+    background:#38bdf8;
+
+    box-shadow:0 0 12px #38bdf8;
+
+    animation:floatParticle linear infinite;
+
+}
+
+@keyframes floatParticle{
+
+    from{
+
+        transform:translateY(100vh);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-120px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===== Action Buttons ===== */
+
+#actionButtons{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+/* ===== Fade Animation ===== */
+
+.fade-in{
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+
+
+
+/* ===================================================
+   UPI Shield AI - Premium Cyber Theme
+   Version 15 - Part 4 (Final)
+=================================================== */
+
+/* ===========================
+   Links
+=========================== */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* Prominent, accessible password recovery link on the login form */
+.password-reset-help{
+    margin:12px 0 0;
+    text-align:center;
+}
+
+.password-reset-link{
+    display:inline-flex;
+    min-height:44px;
+    align-items:center;
+    justify-content:center;
+    padding:10px 16px;
+    border-radius:12px;
+    color:#7dd3fc;
+    font-size:1rem;
+    font-weight:600;
+    text-decoration:underline;
+    text-underline-offset:4px;
+}
+
+.password-reset-link:hover{
+    color:#fff;
+    background:rgba(56,189,248,.14);
+}
+
+.password-reset-link:focus-visible{
+    outline:3px solid #38bdf8;
+    outline-offset:2px;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer{
+
+    margin-top:70px;
+
+    padding:25px;
+
+    text-align:center;
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+    opacity:.85;
+
+    border-top:1px solid rgba(255,255,255,.12);
+
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0f172a;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#38bdf8;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#06b6d4;
+
+}
+
+/* ===========================
+   Text Selection
+=========================== */
+
+::selection{
+
+    background:#38bdf8;
+
+    color:#fff;
+
+}
+
+/* ===========================
+   Images
+=========================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* ===========================
+   Cards Grid
+=========================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+.card{
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+.card h3{
+
+    margin-bottom:12px;
+
+    color:#38bdf8;
+
+}
+
+.number{
+
+    font-size:42px;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   Profile Image
+=========================== */
+
+.profile-photo{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin:auto;
+
+    border:4px solid #38bdf8;
+
+    box-shadow:
+    0 0 35px rgba(56,189,248,.6);
+
+}
+
+/* ===========================
+   Utility
+=========================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mt-30{
+
+    margin-top:30px;
+
+}
+
+.mt-40{
+
+    margin-top:40px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.container{
+
+    width:95%;
+
+    padding:20px;
+
+}
+
+h1{
+
+    font-size:36px;
+
+}
+
+.subtitle{
+
+    font-size:16px;
+
+}
+
+.risk-meter{
+
+    width:150px;
+
+    height:150px;
+
+    font-size:28px;
+
+}
+
+button{
+
+    width:100%;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+.scanner{
+
+    width:220px;
+
+    height:220px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+h1{
+
+    font-size:30px;
+
+}
+
+textarea{
+
+    min-height:180px;
+
+}
+
+.card{
+
+    padding:20px;
+
+}
+
+.number{
+
+    font-size:32px;
+
+}
+
+.profile-photo{
+
+    width:130px;
+
+    height:130px;
+
+}
+
+}
+
+/* ===========================
+   END
+=========================== */
+
+.analysis-explanation{
+    margin-top:1rem;
+    padding:1rem 1.1rem;
+    border:1px solid rgba(56,189,248,.35);
+    border-radius:12px;
+    background:rgba(2,6,23,.42);
+    color:var(--text);
+    line-height:1.55;
+    overflow-wrap:anywhere;
+}
+
+.analysis-explanation h3{font-size:1.05rem;margin-bottom:.55rem;color:#bae6fd}
+.explanation-list{padding-left:1.2rem;margin:.4rem 0}
+.explanation-list li{margin:.45rem 0}
+.explanation-list small{display:block;color:#cbd5e1;font-size:.84rem}
+.explanation-score{margin-top:.65rem;font-weight:600}
+.explanation-limit{margin-top:.4rem;font-size:.88rem;color:#cbd5e1}
+
+.image-review{margin-top:1rem;padding:1rem;border:1px solid rgba(56,189,248,.35);border-radius:12px;background:rgba(2,6,23,.32)}
+.image-review label{display:block;margin:.6rem 0;font-weight:650}
+.image-review textarea{width:100%;min-height:9rem;resize:vertical}
+.image-review button:disabled,.scanner button:disabled{opacity:.65;cursor:wait}
+.result[aria-busy="true"]{border-color:var(--primary);}
+.qr-result{margin-top:.8rem;padding:.8rem;border-radius:9px;background:rgba(15,23,42,.65);overflow-wrap:anywhere}
+.qr-result pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;}
+.ocr-status{padding:.65rem .8rem;border-left:3px solid var(--primary);background:rgba(14,165,233,.1);}
+
+@media(max-width:600px){
+    .analysis-explanation{padding:.85rem;font-size:.95rem}
+}
+
+.history-page,.simulator-page{max-width:1100px;margin:2rem auto}
+.history-table-wrap{width:100%;overflow-x:auto;margin:1.2rem 0}
+.history-table{width:100%;border-collapse:collapse;background:rgba(2,6,23,.48);color:var(--text)}
+.history-table th,.history-table td{padding:.8rem;text-align:left;border-bottom:1px solid rgba(148,163,184,.28)}
+.history-actions{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.history-actions form{margin:0}
+.history-actions .button,.history-page .button,.simulator-page .button{display:inline-flex;align-items:center;justify-content:center;padding:.55rem .8rem;border-radius:8px;text-decoration:none}
+.danger-button{background:#991b1b!important;color:white!important}
+.simulator-notice{padding:.8rem 1rem;border-left:4px solid var(--warning);background:rgba(245,158,11,.1)}
+.simulator-card{margin:1rem 0;padding:1.2rem}
+.simulator-card blockquote{margin:.75rem 0;padding:1rem;border-left:3px solid var(--primary);background:rgba(2,6,23,.4);line-height:1.55}
+.simulator-card fieldset{border:0;margin:.8rem 0;display:flex;gap:.5rem 1rem;flex-wrap:wrap}
+.simulator-card legend{font-weight:700;margin-bottom:.5rem}
+.simulator-choice{display:flex;gap:.4rem;align-items:center}
+.simulator-reveal{margin-top:1rem;padding:1rem;border:1px solid rgba(34,197,94,.45);border-radius:10px;background:rgba(34,197,94,.08);line-height:1.55}
+.simulator-reveal h4{margin-top:.8rem}
+.simulator-reveal ul{padding-left:1.2rem}
+
+@media(max-width:600px){
+    .history-table th,.history-table td{padding:.55rem;white-space:nowrap}
+    .history-actions{min-width:190px}
+    .simulator-card fieldset{display:grid;grid-template-columns:1fr}
+}
+
+
+
+
+
+
+
+
+
+/* Stage 3: shared FinTech visual system, focus states, and touch layouts. */
+:root{
+    color-scheme:dark;
+    --surface:rgba(15,32,44,.94);
+    --surface-raised:rgba(20,43,56,.96);
+    --line:rgba(148,190,180,.22);
+    --muted-text:#b7c9c4;
+    --focus:#a7f3d0;
+}
+
+html{scroll-behavior:smooth;}
+body{
+    background:
+        radial-gradient(circle at 12% 8%,rgba(16,185,129,.12),transparent 36%),
+        radial-gradient(circle at 90% 85%,rgba(20,184,166,.10),transparent 32%),
+        linear-gradient(155deg,#07121b,#0c1d28 55%,#0b2428);
+    background-size:cover;
+    animation:none;
+}
+body::before,body::after{
+    opacity:.3;
+    animation:none;
+    pointer-events:none;
+}
+.container{
+    width:calc(100% - 2rem);
+    max-width:1120px;
+    margin-inline:auto;
+}
+.card,.history-page,.simulator-card,.image-review,.analysis-explanation{
+    border-color:var(--line);
+}
+.card,.history-table,.simulator-card{
+    background-color:var(--surface);
+    box-shadow:0 18px 48px rgba(0,0,0,.22);
+}
+a{color:#a7f3d0;}
+a:hover{color:#d1fae5;}
+button,.button,.nav-signout{
+    min-height:44px;
+    border-radius:12px;
+    font:inherit;
+    font-weight:650;
+    transition:transform .16s ease,background-color .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+button,.button{
+    background:linear-gradient(135deg,#059669,#047857);
+    border:1px solid rgba(167,243,208,.30);
+    color:#f0fdf4;
+    text-decoration:none;
+}
+button:hover,.button:hover{
+    color:#fff;
+    background:linear-gradient(135deg,#10b981,#059669);
+    box-shadow:0 8px 24px rgba(16,185,129,.20);
+    transform:translateY(-1px);
+}
+input,textarea,select{
+    max-width:100%;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:rgba(3,14,22,.8);
+    color:var(--text);
+}
+input:focus-visible,textarea:focus-visible,select:focus-visible,
+button:focus-visible,a:focus-visible,.button:focus-visible{
+    outline:3px solid var(--focus);
+    outline-offset:3px;
+}
+.app-nav{
+    width:calc(100% - 2rem);
+    max-width:1200px;
+    margin:1rem auto 1.4rem;
+    padding:.7rem .85rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    flex-wrap:wrap;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:rgba(7,19,29,.9);
+    box-shadow:0 12px 32px rgba(0,0,0,.18);
+}
+.app-brand{
+    color:#ecfdf5;
+    font-size:1.05rem;
+    font-weight:750;
+    text-decoration:none;
+    white-space:nowrap;
+}
+.app-nav-links{display:flex;align-items:center;justify-content:flex-end;gap:.45rem;flex-wrap:wrap;}
+.app-nav-links>a,.nav-signout{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:.55rem .8rem;
+    border:1px solid transparent;
+    border-radius:10px;
+    color:#d1fae5;
+    background:transparent;
+    text-decoration:none;
+}
+.app-nav-links>a:hover,.nav-signout:hover{background:rgba(16,185,129,.14);border-color:var(--line);}
+.app-nav-links form{margin:0;}
+.toast-region{position:fixed;right:1rem;bottom:1rem;z-index:20;display:grid;gap:.5rem;max-width:min(24rem,calc(100vw - 2rem));}
+.toast{padding:.85rem 1rem;border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:12px;background:#10222c;color:#f1f5f9;box-shadow:0 12px 32px rgba(0,0,0,.3);}
+.toast-success{border-left-color:#34d399;}
+.toast-error{border-left-color:#fb7185;}
+.privacy-notice{margin:1rem 0;padding:.85rem 1rem;border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:12px;background:rgba(16,185,129,.08);color:var(--muted-text);line-height:1.55;}
+.privacy-notice a{font-weight:650;}
+.loading-spinner{display:inline-block;width:1rem;height:1rem;margin-right:.55rem;border:2px solid rgba(255,255,255,.28);border-top-color:var(--primary);border-radius:50%;vertical-align:-.15rem;animation:shield-spin .8s linear infinite;}
+@keyframes shield-spin{to{transform:rotate(360deg);}}
+.safety-action-list{padding-left:1.25rem;text-align:left;line-height:1.7;}
+.action-buttons{display:flex;gap:.65rem;align-items:center;flex-wrap:wrap;margin-top:1rem;}
+.action-buttons .button{display:inline-flex;align-items:center;justify-content:center;padding:.65rem .9rem;}
+.history-page,.simulator-page{padding:clamp(1rem,3vw,2rem);}
+.history-table td,.history-table th{overflow-wrap:anywhere;}
+.flash,.result.error{border-left:4px solid #fb7185;background:rgba(190,24,93,.12);padding:.8rem 1rem;border-radius:10px;}
+@media(max-width:900px){
+    .app-nav{align-items:flex-start;}
+    .app-nav-links{justify-content:flex-start;}
+}
+@media(max-width:600px){
+    .container{width:calc(100% - 1rem);padding:1rem;}
+    .app-nav{width:calc(100% - 1rem);margin:.5rem auto 1rem;padding:.65rem;}
+    .app-nav-links{width:100%;justify-content:flex-start;}
+    .app-nav-links>a,.nav-signout{padding:.55rem .65rem;}
+    input,textarea,select{font-size:16px;}
+    .buttons button,.buttons .button{width:100%;}
+    .action-buttons .button{flex:1 1 100%;}
+    .history-table-wrap{max-width:100%;}
+    .history-table th,.history-table td{font-size:.9rem;}
+    .qr-result pre{max-height:12rem;overflow:auto;}
+}
+@media(max-width:375px){
+    .app-nav-links{gap:.2rem;}
+    .app-nav-links>a,.nav-signout{font-size:.9rem;padding:.45rem;}
+    h1{font-size:1.75rem;overflow-wrap:anywhere;}
+}
+@media(hover:hover){
+    .card,.analytics-card,.feature,.stat-card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+    .card:hover,.analytics-card:hover,.feature:hover,.stat-card:hover{transform:translateY(-2px);border-color:rgba(52,211,153,.35);}
+}
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important;}
+}
+
+.landing-main{width:calc(100% - 2rem);
+    max-width:1120px;margin:0 auto 3rem;}
+.landing-hero{padding:clamp(1.5rem,5vw,4rem);border-radius:24px;background:linear-gradient(145deg,rgba(15,39,49,.97),rgba(10,28,37,.94));}
+.landing-hero h1{max-width:16ch;margin:.2rem 0 1rem;font-size:clamp(2.1rem,6vw,4rem);line-height:1.08;}
+.landing-hero p{max-width:70ch;color:var(--muted-text);line-height:1.65;}
+.landing-hero .landing-lead{margin-bottom:1rem;color:#e2e8f0;font-size:clamp(1.08rem,2.5vw,1.35rem);}
+.eyebrow{color:#a7f3d0!important;font-size:.82rem;font-weight:750;letter-spacing:.11em;text-transform:uppercase;}
+.landing-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0;}
+.landing-actions .button{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1rem;}
+.button-secondary{background:rgba(15,32,44,.9);border-color:var(--line);}
+.landing-note{margin-top:1.2rem;font-size:.9rem;}
+.landing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem;}
+.landing-feature{padding:1.35rem;}
+.landing-feature h2{margin-bottom:.5rem;font-size:1.1rem;color:#d1fae5;}
+.landing-feature p{color:var(--muted-text);line-height:1.55;}
+.app-nav-links>a.button{background:linear-gradient(135deg,#059669,#047857);border-color:rgba(167,243,208,.3);}
+@media(max-width:768px){.landing-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.landing-main{width:calc(100% - 1rem);}.landing-actions .button{flex:1 1 100%;}}

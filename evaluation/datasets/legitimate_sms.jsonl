@@ -1,0 +1,12 @@
+{"id": "legit-001", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Your appointment is confirmed for Tuesday at 10 AM.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-002", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Your bank statement is available in your banking app.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-003", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Your OTP for the login ending in 42 is 123456. Do not share it with anyone.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-004", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Reminder: electricity bill of Rs 850 is due on 12 December. Pay in the official app.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-005", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Your refund was approved and sent to your original payment method.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-006", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "UPI payment of Rs 240 to Cafe Market is complete.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-007", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "The bank will never ask you to share your PIN or OTP.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-008", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Your payment request from the store was received. Confirm the amount in the official app.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-009", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Your cashback was credited today.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-010", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "We are hiring for a part-time job at our shop. Apply through the company careers page.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-011", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "The delivery driver is at the front gate. Please collect your parcel.", "data_origin": "synthetic", "locale": "en"}
+{"id": "legit-012", "task": "sms", "category": "legitimate sms", "label": "negative", "text": "Your electricity bill is due next week. View the statement in the utility app.", "data_origin": "synthetic", "locale": "en"}
