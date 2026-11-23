@@ -9,6 +9,12 @@
 
 const smsBox = document.getElementById("smsBox");
 
+const analysisForm = document.getElementById("analysisForm");
+
+const analyzeButton = document.getElementById("analyzeButton");
+
+const analyzeButtonLabel = analyzeButton.textContent.trim();
+
 const resultBox = document.getElementById("result");
 
 const riskValue = document.getElementById("riskValue");
@@ -173,14 +179,17 @@ async function checkFraud(){
 
         resultBox.className="result error";
         resultBox.textContent="Please enter or paste a message.";
+        smsBox.focus();
         return;
 
     }
 
     scanPending = true;
-    await loadingAnimation();
+    analyzeButton.disabled = true;
+    analyzeButton.textContent = "Analyzing...";
 
     try{
+        await loadingAnimation();
 
         const response=await fetch("/check",{
 
@@ -425,6 +434,8 @@ async function checkFraud(){
 
     finally{
         scanPending = false;
+        analyzeButton.disabled = false;
+        analyzeButton.textContent = analyzeButtonLabel;
     }
 
 }
@@ -595,15 +606,31 @@ smsBox.addEventListener("input",function(){
 // Ctrl + Enter = Analyze
 // ==========================================
 
+analysisForm.addEventListener("submit",function(event){
+    event.preventDefault();
+    checkFraud();
+});
+
 smsBox.addEventListener("keydown",function(event){
 
     if(event.ctrlKey && event.key==="Enter"){
 
-        checkFraud();
+        event.preventDefault();
+        if(typeof analysisForm.requestSubmit === "function"){
+            analysisForm.requestSubmit(analyzeButton);
+        }else{
+            analysisForm.dispatchEvent(new Event("submit", {bubbles:true, cancelable:true}));
+        }
 
     }
 
 });
+
+document.getElementById("pasteButton").addEventListener("click", pasteClipboard);
+
+document.getElementById("imageScanButton").addEventListener("click", scanImage);
+
+document.getElementById("analyzeImageTextButton").addEventListener("click", analyzeImageText);
 
 // ==========================================
 // Welcome Message
