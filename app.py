@@ -1183,13 +1183,38 @@ def upload_photo():
     return redirect("/profile")
 
 
+# @app.errorhandler(CSRFError)
+# def handle_csrf_error(error):
+#     message = "The form has expired or is invalid. Reload the page and try again."
+#     if request.path in JSON_SCAN_PATHS and "user_id" not in session:
+#         return _error("Please log in to scan.", 401)
+#     if request.path in JSON_SCAN_PATHS or request.is_json:
+#         return _error(message, 400)
+#     return message, 400
+
 @app.errorhandler(CSRFError)
 def handle_csrf_error(error):
+    app.logger.warning(
+        "csrf_validation_failed "
+        "path=%s method=%s reason=%s secure=%s scheme=%s "
+        "session_cookie_present=%s forwarded_proto=%s",
+        request.path,
+        request.method,
+        error.description,
+        request.is_secure,
+        request.scheme,
+        app.config["SESSION_COOKIE_NAME"] in request.cookies,
+        request.headers.get("X-Forwarded-Proto", "")[:32],
+    )
+
     message = "The form has expired or is invalid. Reload the page and try again."
+
     if request.path in JSON_SCAN_PATHS and "user_id" not in session:
         return _error("Please log in to scan.", 401)
+
     if request.path in JSON_SCAN_PATHS or request.is_json:
         return _error(message, 400)
+
     return message, 400
 
 
